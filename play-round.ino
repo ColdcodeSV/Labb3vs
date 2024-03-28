@@ -1,0 +1,20 @@
+void playRound(char *choice) {
+lcd.clear();
+lcd.print("Tossin' coin.");
+delay(300);
+lcd.clear();
+lcd.print("Tossin' coin .");
+delay(300);
+lcd.clear();
+lcd.print("Tossin' coin  .");
+delay(300);
+lcd.clear();
+lcd.print("Tossin' coin  .");
+delay(300);
+lcd.clear();
+lcd.print("Tossin' coin . ");
+delay(300);
+lcd.clear();
+lcd.print("Tossin' coin. ");
+delay(300);
+lcd.clear();
