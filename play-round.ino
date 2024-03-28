@@ -1,0 +1,52 @@
+void playRound(char *choice) {
+lcd.clear();
+lcd.print("Tossin' coin.");
+delay(300);
+lcd.clear();
+lcd.print("Tossin' coin .");
+delay(300);
+lcd.clear();
+lcd.print("Tossin' coin  .");
+delay(300);
+lcd.clear();
+lcd.print("Tossin' coin  .");
+delay(300);
+lcd.clear();
+lcd.print("Tossin' coin . ");
+delay(300);
+lcd.clear();
+lcd.print("Tossin' coin. ");
+delay(300);
+lcd.clear();
+
+// Slumpmässigt generera ett nummer för myntkastet (0 eller 1)
+int coinFlip = random(2);
+
+// Utför vinst- eller förlustkontroll baserat på spelarens val och myntkastet
+if ((coinFlip == 0 && strcmp(choice, "h") == 0) || (coinFlip == 1 && strcmp(choice, "t") == 0)) {
+// Om spelaren vinner: öka pengarna, öka antalet vinster, tänd lysdioden för vinst, visa "YOU WON" och pengarna, vänta 2 sekunder
+money += bet;
+wins++;
+digitalWrite(ledWin, HIGH);
+delay(1000);
+digitalWrite(ledWin, LOW);
+displayMessage(" YOU WON ");
+displayMoney(bet);
+lcd.print(" $");
+} else {
+// Om spelaren förlorar: minska pengarna, öka antalet förluster, tänd lysdioden för förlust, visa "YOU LOST" och pengarna, vänta 2 sekunder
+money -= bet;
+losses++;
+digitalWrite(ledLoss, HIGH);
+delay(1000);
+digitalWrite(ledLoss, LOW);
+displayMessage(" YOU LOST ");
+displayMoney(bet);
+lcd.print(" $");
+}
+delay(2000);
+
+// Återställ insatsen till standardvärdet
+bet = 10;
+displayBet(bet);
+}
